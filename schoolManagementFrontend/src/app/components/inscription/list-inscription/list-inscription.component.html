@@ -1,0 +1,76 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">inscriptions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col">
+                <a [routerLink]="['/admin/inscriptions/add']" routerLinkActive="router-link-active" ><button class="btn btn-primary">Add Inscription</button></a>
+            </div>
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Inscriptions</h5>
+                            <span class="d-block m-t-5"><code>Inscriptions list</code></span>
+                        </div>
+                        <div class="card-body table-border-style">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>year</th>
+                                            <th>createdAt</th>
+                                            <th>session</th>
+                                            <th>faculty</th>
+                                            <th>actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let inscription of inscriptions; let i=index">
+                                            <td>{{i+1}}</td>
+                                            <td>{{inscription.year}}</td>
+                                            <td>{{inscription.createdAt | date:'short'}}</td>
+                                            <td *ngIf="inscription.session!=null"><a [routerLink]="['/admin/sessions/detail',inscription.session.id ]"
+                                            routerLinkActive="router-link-active">{{inscription.session.name}}</a></td>
+                                            <td *ngIf="inscription.session==null" class="text-danger">Not Session</td>
+                                            <td>
+                                                <a [routerLink]="['/admin/inscriptions/update', inscription.id]"
+                                                routerLinkActive="router-link-active"><i class="icon feather icon-edit f-16  text-success"></i></a>
+                                                <a [routerLink]="['/admin/inscriptions/delete', inscription.id]"
+                                                routerLinkActive="router-link-active"><i class="feather icon-trash-2 ml-3 f-16 text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+

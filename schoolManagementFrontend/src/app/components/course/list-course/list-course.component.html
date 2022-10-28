@@ -1,0 +1,79 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">courses</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col">
+                <a [routerLink]="['/admin/courses/add']" routerLinkActive="router-link-active" ><button class="btn btn-primary">Add Course</button></a>
+              </div>
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Courses</h5>
+                            <span class="d-block m-t-5"><code>Courses list</code></span>
+                        </div>
+                        <div class="card-body table-border-style">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>totalHour</th>
+                                            <th>teachHour</th>
+                                            <th>createdAt</th>
+                                            <th>teacher</th>
+                                            <th>actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let course of courses; let i=index">
+                                            <td>{{i+1}}</td>
+                                            <td>{{course.name}}</td>
+                                            <td>{{course.totalHour}}</td>
+                                            <td>{{course.teachHour}}</td>
+                                            <td>{{course.createdAt | date:'short'}}</td>
+                                            <td *ngIf="course.employee!=null"><a [routerLink]="['/admin/employees/detail',course.employee.id ]"
+                                            routerLinkActive="router-link-active">{{course.employee.firstname}} {{course.employee.lastname}}</a></td>
+                                            <td *ngIf="course.employee==null" class="text-danger">Not Teacher</td>
+                                            <td>
+                                                <a [routerLink]="['/admin/courses/update', course.id]"
+                                                routerLinkActive="router-link-active"><i class="icon feather icon-edit f-16  text-success"></i></a>
+                                                <a [routerLink]="['/admin/courses/delete', course.id]"
+                                                routerLinkActive="router-link-active"><i class="feather icon-trash-2 ml-3 f-16 text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+

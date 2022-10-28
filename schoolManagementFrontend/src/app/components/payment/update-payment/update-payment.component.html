@@ -1,0 +1,83 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/admin/payments']" routerLinkActive="router-link-active" >payments</a></li>
+                            <li class="breadcrumb-item">edite payment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="container">
+
+                <form role="form"  [formGroup]="form" (ngSubmit)="edite()">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-offset-3">
+                            <div class="col-md-12">
+                                <h3> Edite Payment</h3>
+                                <div class="form-group">
+                                    <label class="control-label">Name Payment</label>
+                                    <input  type="number" required="required" class="form-control"
+                                            placeholder="Name of payment"  amount="amount" formControlName="amount"
+                                            [ngClass]="{
+                                                'is-invalid':
+                                                  form.get('amount').touched &&
+                                                  !form.get('amount').valid
+                                              }">
+                                    <div class="invalid-feedback">
+                                        <span *ngIf="form.get('amount').errors?.required">
+                                            Enter payment
+                                        </span>
+                                     </div>           
+                                </div>   
+                                <div class="form-group">
+                                    <label class="control-label">Type</label>
+                                    <select  id="" class="form-control" amount="coeficient" formControlName="coeficient">
+                                        <option>...</option>
+                                        <option value="collage">collage</option>
+                                        <option value="register">register</option>
+                                    </select>
+                                </div>
+                
+                                <div class="form-group" formGroupName="inscription">
+                                    <label class="control-label">Unity</label>
+                                    <select  id="" class="form-control" amount="id" formControlName="id">
+                                        <option>...</option>
+                                        <option  *ngFor="let inscription of inscriptions" value="{{inscription.id}}">{{inscription.year}}</option>
+                                    </select>
+                                </div>
+                                
+                            </div>
+                        </div>    
+                    </div>
+                    
+                    <button class="btn btn-success btn-lg pull-right" [disabled]="!form.valid" type="submit">Submit</button>
+                </form>
+                <pre>
+                    {{form.value | json}}
+                </pre>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+
+
+

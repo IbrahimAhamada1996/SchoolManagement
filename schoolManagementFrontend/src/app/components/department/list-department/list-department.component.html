@@ -1,0 +1,72 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">departments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col">
+                <a [routerLink]="['/admin/departments/add']" routerLinkActive="router-link-active" ><button class="btn btn-primary">Add Department</button></a>
+              </div>
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Departments</h5>
+                            <span class="d-block m-t-5"><code>Departments list</code></span>
+                        </div>
+                        <div class="card-body table-border-style">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Dept Name</th>
+                                            <th>Responsible Dept</th>
+                                            <th>actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let department of departments; let i=index">
+                                            <td>{{i+1}}</td>
+                                            <td>{{department.name}}</td>
+                                            <td *ngIf="department.employee!=null"><a [routerLink]="['/admin/employees/detail',department.employee.id ]"
+                                            routerLinkActive="router-link-active">{{department.employee.firstname}} {{department.employee.lastname}}</a></td>
+                                            <td *ngIf="department.employee==null" class="text-danger">Not Magnager</td>
+                                            <td>
+                                                <a [routerLink]="['/admin/departments/update', department.id]"
+                                                routerLinkActive="router-link-active"><i class="icon feather icon-edit f-16  text-success"></i></a>
+                                                <a [routerLink]="['/admin/departments/delete', department.id]"
+                                                routerLinkActive="router-link-active"><i class="feather icon-trash-2 ml-3 f-16 text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+

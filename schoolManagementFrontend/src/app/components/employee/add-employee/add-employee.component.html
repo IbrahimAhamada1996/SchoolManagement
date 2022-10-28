@@ -1,0 +1,297 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/admin/employees']" routerLinkActive="router-link-active">Employees</a></li>
+                            <li class="breadcrumb-item">add Employee</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="container">
+                <!-- <pre>
+                    {{form.value | json}}
+                </pre> -->
+                   
+                <form novalidate [formGroup]="form" (ngSubmit)="onSubmit(form)">
+                    
+                    <h3> New</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">First Name</label>
+                                <input  type="text"  class="form-control"
+                                        placeholder="Enter First Name"  name="firstname" formControlName="firstname"
+                                        [ngClass]="{
+                                            'is-invalid':
+                                              form.get('firstname').touched &&
+                                              !form.get('firstname').valid
+                                          }">
+                                    <div class="invalid-feedback">
+                                    <span *ngIf="form.get('firstname').errors?.required">
+                                        Enter  firstname
+                                    </span>
+                                    <span *ngIf="form.get('firstname').errors?.minlength">
+                                        Minimum 2 characters
+                                    </span>
+                                    <span *ngIf="form.get('firstname').errors?.maxlength">
+                                        Maxinimum 30 characters
+                                    </span>
+                                    </div>
+                             </div>
+                        </div>
+                        <div class="col-md-4">     
+                            <div class="form-group">
+                                <label class="control-label">Last Name</label>
+                                <input type="text"  class="form-control"
+                                        placeholder="Enter Last Name" name="lastname" formControlName="lastname"
+                                        [ngClass]="{
+                                            'is-invalid':
+                                              form.get('lastname').touched &&
+                                              !form.get('lastname').valid
+                                          }">
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('lastname').errors?.required">
+                                        Enter firstname
+                                    </span>
+                                    <span *ngIf="form.get('lastname').errors?.minlength">
+                                        Minimum 2 characters
+                                    </span>
+                                    <span *ngIf="form.get('lastname').errors?.maxlength">
+                                        Maxinimum 30 characters
+                                    </span>
+                                </div>          
+                            </div>
+                        </div>
+                        <div class="col-md-4">     
+                            <div class="form-group">
+                                <label class="control-label">Phone number</label>
+                                <input  type="text"  class="form-control"
+                                        placeholder="Enter Last Phone" name="phone" formControlName="phone"
+                                        [ngClass]="{
+                                            'is-invalid':
+                                              form.get('phone').touched &&
+                                              !form.get('phone').valid
+                                          }">
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('phone').errors?.required">
+                                        Enter phone number
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Birth Date</label>
+                                <input type="date"  name="birthDay" formControlName="birthDay" class="form-control" placeholder="Birth date"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('birthDay').touched &&
+                                      !form.get('birthDay').valid
+                                  }">
+                                  <div class="invalid-feedback">
+                                    <span *ngIf="form.get('birthDay').errors?.required">
+                                        Enter birth Day
+                                    </span>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Place Date</label>
+                                <input type="text"  name="birthPlace" formControlName="birthPlace" class="form-control" placeholder="Place date"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('birthPlace').touched &&
+                                      !form.get('birthPlace').valid
+                                  }">
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('birthPlace').errors?.required">
+                                        Enter birth Place
+                                    </span>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">ID card</label>
+                                <input type="text"  name="cni" formControlName="cni" class="form-control" placeholder="CNI"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('cni').touched &&
+                                      !form.get('cni').valid
+                                  }">
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('cni').errors?.required">
+                                        Enter your ID card
+                                    </span>
+                                </div>  
+                              </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Situation Familliale</label>
+                                <input type="text"  name="situationFamilliale" formControlName="situationFamilliale" class="form-control" placeholder="situation Familliale">
+                              </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Child Number</label>
+                                <input type="text"  name="childNumber" formControlName="childNumber" class="form-control" placeholder="child Number">
+                              </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Salary</label>
+                                <input type="number"  name="salary" formControlName="salary" class="form-control" placeholder="salary">
+                              </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Address</label>
+                                <textarea   name="address" formControlName="address" class="form-control" placeholder="Enter your address"></textarea>
+                              </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Hire Date</label>
+                                <input type="date"  name="hireDate" formControlName="hireDate" class="form-control" placeholder="hire Date"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('hireDate').touched &&
+                                      !form.get('hireDate').valid
+                                  }">
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('hireDate').errors?.required">
+                                        Enter the date
+                                    </span>
+                                </div>  
+                              </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">Gender</label>
+                                <select name="gender" formControlName="gender" id="" class="form-control"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('gender').touched &&
+                                      !form.get('gender').valid
+                                  }">
+                                  <option>...</option>
+                                  <option ngValue="M">M</option>
+                                  <option ngValue="F">F</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('gender').errors?.required">
+                                        Enter the gender
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3" formArrayName="roles">
+                            <label class="control-label">ROLE</label>
+                            <div *ngFor="let role of rolesList.controls;let i=index">
+                                <div class="form-group" [formGroupName]="i">
+                                  
+                                    <select name="roleName" formControlName="roleName"  id="" class="form-control">
+                                      <option>...</option>
+                                      <option value="ROLE_BOOKEEPER">BOOKEEPER</option>
+                                      <option value="ROLE_DIRECTOR">DIRECTOR</option>
+                                      <option value="ROLE_TEACHER">TEACHER</option>
+                                      <option value="ROLE_DEPARTMENT_MANAGER">DEPARTMENT_MANAGER</option>
+                                      <option value="ROLE_GUARDIAN">GUARDIAN</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">E-mail</label>
+                                    <input type="email"  name="email" formControlName="email" class="form-control" placeholder="email"
+                                    [ngClass]="{
+                                        'is-invalid':
+                                          form.get('email').touched &&
+                                          !form.get('email').valid
+                                      }">
+                                    <div class="invalid-feedback">
+                                        <span *ngIf="form.get('phone').errors?.required">
+                                            Enter the email
+                                        </span>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Username</label>
+                                    <input type="text"  name="username" formControlName="username" class="form-control" placeholder="username"
+                                    [ngClass]="{
+                                        'is-invalid':
+                                          form.get('username').touched &&
+                                          !form.get('username').valid
+                                      }">
+                                    <div class="invalid-feedback">
+                                        <span *ngIf="form.get('username').errors?.required">
+                                            Enter username
+                                        </span>
+                                    </div>
+                                  </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Password</label>
+                                    <input type="password"  name="password" formControlName="password" class="form-control" placeholder="password"
+                                    [ngClass]="{
+                                        'is-invalid':
+                                          form.get('password').touched &&
+                                          !form.get('password').valid
+                                      }">
+                                    <div class="invalid-feedback">
+                                        <span *ngIf="form.get('password').errors?.required">
+                                            Enter password
+                                        </span>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>    
+
+                    </div>
+                    <div class="text-center">
+                          <!-- [disabled]="form.invalid" -->
+                        <button class="btn btn-success btn-lg pull-right" [disabled]="!form.valid" type="submit" >Submit</button>
+                    
+                        <button class="btn btn-danger btn-lg pull-right ml-5" type="reset">Reset</button>
+                    </div>
+                  
+                </form>
+
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+

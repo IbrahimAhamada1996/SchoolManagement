@@ -1,0 +1,99 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/admin/modules']" routerLinkActive="router-link-active" >modules</a></li>
+                            <li class="breadcrumb-item">edite level</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="container">
+
+                <form role="form"  [formGroup]="form" (ngSubmit)="edite()">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-offset-3">
+                            <div class="col-md-12">
+                                <h3> New Level</h3>
+                                <div class="form-group">
+                                    <label class="control-label">Name Level</label>
+                                    <input  type="text" required="required" class="form-control"
+                                            placeholder="Name of level"  name="name" formControlName="name"
+                                            [ngClass]="{
+                                                'is-invalid':
+                                                  form.get('name').touched &&
+                                                  !form.get('name').valid
+                                              }">
+                                    <div class="invalid-feedback">
+                                        <span *ngIf="form.get('name').errors?.required">
+                                            Enter level
+                                        </span>
+                                        <span *ngIf="form.get('name').errors?.minlength">
+                                            Minimum 2 characters
+                                        </span>
+                                        <span *ngIf="form.get('name').errors?.maxlength">
+                                            Maxinimum 30 characters
+                                        </span>
+                                     </div>           
+                                </div>  
+                                <div class="form-group">
+                                    <label class="control-label">Coeficient</label>
+                                    <select  id="" class="form-control" name="coeficient" formControlName="coeficient">
+                                        <option>...</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    
+                                    </select>
+                                </div>
+                
+                                <div class="form-group" formGroupName="unity">
+                                    <label class="control-label">Unity</label>
+                                    <select  id="" class="form-control" name="id" formControlName="id">
+                                        <option>...</option>
+                                        <option  *ngFor="let unity of unities" value="{{unity.id}}">{{unity.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" formGroupName="level">
+                                    <label class="control-label">Level</label>
+                                    <select  id="" class="form-control" name="id" formControlName="id">
+                                        <option>...</option>
+                                        <option  *ngFor="let level of levels" value="{{level.id}}">{{level.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                    
+                    <button class="btn btn-success btn-lg pull-right" [disabled]="!form.valid" type="submit">Submit</button>
+                </form>
+                <pre>
+                    {{form.value | json}}
+                </pre>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+
+

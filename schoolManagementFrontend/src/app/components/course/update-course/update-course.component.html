@@ -1,0 +1,159 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/admin/courses']" routerLinkActive="router-link-active">courses</a></li>
+                            <li class="breadcrumb-item">edite Classroom</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        
+        <div class="container">   
+            <div class="row">
+                <div class="col-xs-6 col-md-6">
+                        <form role="form" novalidate  [formGroup]="form" (ngSubmit)="edite()">
+                        <h3> New Course</h3>
+                        <div class="form-group">
+                            <label class="control-label">Name</label>
+                            <input  type="text" required="required" class="form-control"
+                                placeholder="name"  name="name" formControlName="name"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('name').touched &&
+                                      !form.get('name').valid
+                                  }">
+                            <div class="invalid-feedback">
+                                <span *ngIf="form.get('name').errors?.required">
+                                    Enter firstname
+                                </span>
+                                <span *ngIf="form.get('name').errors?.minlength">
+                                    Minimum 2 characters
+                                </span>
+                                <span *ngIf="form.get('name').errors?.maxlength">
+                                    Maxinimum 30 characters
+                                </span>
+                            </div> 
+                        </div>  
+                        <div class="form-group">
+                            <label class="control-label">TotalHour</label>
+                            <input  type="number" required="required" class="form-control"
+                                placeholder="totalHour"  name="totalHour" formControlName="totalHour"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('totalHour').touched &&
+                                      !form.get('totalHour').valid
+                                  }"
+                                >
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('totalHour').errors?.required">
+                                        Enter totalHour
+                                    </span>
+                                </div>    
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">TotalHour</label>
+                            <input  type="number" required="required" class="form-control"
+                                placeholder="teachHour"  name="teachHour" formControlName="teachHour"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('teachHour').touched &&
+                                      !form.get('teachHour').valid
+                                  }"
+                                >
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('teachHour').errors?.required">
+                                        Enter teachHour
+                                    </span>
+                                </div>    
+                        </div>
+                        <div class="form-group" formGroupName="teacher">
+                            <label class="control-label">Teacher</label>
+
+                            <select name="id" id="" class="form-control" name="id" formControlName="id">
+                                <option value="">...</option>
+                                <option  *ngFor="let employee of employees " value="{{employee.id}}">{{employee.lastname}} {{employee.firstname}}</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-success btn-lg pull-right" [disabled]="!form.valid && employee!=null" type="submit">Submit</button>
+                    </form>    
+                </div>
+                <!-- {{employee |json}} -->
+                <div class="col-xs-6  col-md-6 col-md-offset-3 m-t-3">
+                    <div class="card" *ngIf="employee!=null ">
+                        <div class="card-body">
+                            <h5 class="card-title">Detail new  Maganage Department</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <table class="table">
+                            
+                            <tbody>
+                                <tr>
+                                <th scope="row">firstname:</th>
+                                <td>{{employee.firstname}}</td>
+                                <th scope="row">lastname:</th>
+                                <td>{{employee.lastname}}</td>
+                                
+                                </tr>
+                                <tr>
+                                    <th scope="row">email:</th>
+                                    <td>{{employee.email}}</td>
+                                    <th scope="row">roles:</th>
+                                    <td >{{employee.roles[0].roleName}}</td>
+                                   
+                                </tr>
+                                <tr>
+                                <th scope="row">birth Day:</th>
+                                    <td>{{employee.birthDay}}</td>
+                                    <th scope="row">birth Place</th>
+                                    <td >{{employee.birthPlace}}</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <th scope="row">Created date:</th>
+                                    <td>{{employee.createdAt}}</td>
+                                    <th scope="row">Update date:</th>
+                                    <td >{{employee.updatedAt}}</td> 
+                                </tr>
+                                <tr>
+                                    <th scope="row">CNI:</th>
+                                    <td>{{employee.cni}}</td>
+                                    <th scope="row">gender:</th>
+                                    <td>{{employee.gender}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Address:</th>
+                                    <td>{{employee.editeress}}</td>
+                                </tr>
+                            </tbody> 
+                            </table>               
+                            <a [routerLink]="['/admin/employees/detail',employee.id]" routerLinkActive="router-link-active"  class="card-link"><button class="btn btn-info">show detail</button> </a>
+                        </div>
+                        </div>
+                </div>
+            </div>     
+            
+            <pre>
+                {{form.value | json}}
+            </pre>
+
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+

@@ -1,0 +1,139 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/admin/payments']" routerLinkActive="router-link-active" >payments</a></li>
+                            <li class="breadcrumb-item">add payment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="container">
+                <form  [formGroup]="formSearch" (ngSubmit)="search()">
+                    <div class="row m-b-10">
+
+                        <div class="col-md-4 text-center">
+                            <div class="form-control">
+                                <label class="control-label">Year inscription Academy</label>
+                                <select  id="" class="form-control" name="yearId"   formControlName="yearId">
+                                    <option value="4">...</option>
+                                    <!-- <option  *ngFor="let inscription of inscriptions" value="{{inscription.id}}">{{inscription.year}}</option> -->
+                                </select>
+                            </div>
+                        </div>  
+                        <div class="col-md-4 text-center"> 
+                            <div class="form-control">
+                                <label class="control-label">Student's Number</label>
+                                <input  type="number" required="required" class="form-control"
+                                        placeholder="Name of payment"  name="studentNumber" formControlName="studentNumber"
+                                        >           
+                            </div>     
+                        </div>
+                        <div class="col-md-4 text-center"> 
+                            <button type="submit" class="btn btn-success">Search</button>
+                            <button class="btn btn-primary btn-lg pull-right ml-5" (click)="addPayment()" type="button">Payment</button>
+
+                        </div>
+                    </div> <br> <br> <br>
+                </form>
+                <div class="row">
+                    <div class="col-md-4">
+                        
+                        <form role="form"  [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <div formArrayName="payments">
+                                <div *ngFor="let payment of payments.controls; let i = index">
+                                    <div [formGroupName]="i">
+ 
+                                        <h3> New Payment</h3>
+                                        <div class="form-group">
+                                            <label class="control-label">Name Payment</label>
+                                            <input  type="number" required="required" class="form-control"
+                                                    placeholder="Name of payment"  name="amount" formControlName="amount"
+                                            >
+                                                  
+                                        </div>   
+                                        <div class="form-group">
+                                            <label class="control-label">Type</label>
+                                            <select  id="" class="form-control" name="type" formControlName="type">
+                                                <option>...</option>
+                                                <option value="collage">collage</option>
+                                                <option value="register">register</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn btn-danger btn-lg pull-right ml-5 text-center" (click)="deletePayment(i)" type="button">Payment</button>
+
+                                    </div>   
+                                </div>
+                            </div>        
+                            <button class="btn btn-success btn-lg pull-right " [disabled]="!form.valid" type="submit" >Submit</button>
+
+                        </form>
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Payment history</h5>
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>firstname</th>
+                                                <th>lastname </th>
+                                                <th>Date </th>
+                                                <th>Year </th>
+                                                <th>Amount </th>
+                                                <th>actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- <tr *ngFor="let faculty of faculties; let i=index">
+                                                <td>{{i+1}}</td>
+                                                <td>{{faculty.name}}</td>
+                                                <td *ngIf="faculty.department!=null"><a [routerLink]="['/admin/departments/detail',faculty.department.id ]"
+                                                routerLinkActive="router-link-active">{{faculty.department.name}} </a></td>
+                                                <td *ngIf="faculty.department==null" class="text-danger">Not Department</td>
+                                                <td>
+                                                    <a [routerLink]="['/admin/faculties/update', faculty.id]"
+                                                    routerLinkActive="router-link-active"><i class="icon feather icon-edit f-16  text-success"></i></a>
+                                                    <a [routerLink]="['/admin/faculties/delete', faculty.id]"
+                                                    routerLinkActive="router-link-active"><i class="feather icon-trash-2 ml-3 f-16 text-danger"></i></a>
+                                                </td>
+                                            </tr> -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pre>
+                    {{form.value | json}}
+                </pre>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+
+

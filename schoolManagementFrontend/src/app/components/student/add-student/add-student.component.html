@@ -1,0 +1,392 @@
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+  <div class="pcoded-content">
+    <!-- [ breadcrumb ] start -->
+    <div class="page-header">
+      <div class="page-block">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="page-header-title">
+              <h5 class="m-b-10">Dashboard</h5>
+            </div>
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink]="['/admin/students']" routerLinkActive="router-link-active" >students</a></li>
+              <li class="breadcrumb-item">add student</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- [ breadcrumb ] end -->
+    <!-- [ Main Content ] start -->
+    <pre>
+     {{form.value | json}}
+    </pre>
+    <div class="row">
+      <div class="container">
+        <form role="form"  [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="row">
+
+            <div class="col-md-6">
+              <div class="card text-center">
+                <div class="card-header">
+                  <h1>Info  Student </h1>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">First Name</label>
+                          <input maxlength="100" type="text" required="required" class="form-control"
+                                placeholder="Enter First Name"  name="firstname" formControlName="firstname">
+                        </div>
+                      </div> 
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">Last Name</label>
+                          <input maxlength="100" type="text" required="required" class="form-control"
+                                placeholder="Enter Last Name" name="lastname" formControlName="lastname">
+                        </div>
+                      </div> 
+                    </div> 
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">Birth Date</label>
+                          <input type="date" required="required" class="form-control" placeholder="Birth date" formControlName="birthDay">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">Birth Place</label>
+                          <input type="text" required="required" class="form-control" placeholder="Place date" formControlName="birthPlace">
+                        </div>
+                      </div>
+                    </div> 
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">Address</label>
+                          <textarea required="required" class="form-control" placeholder="Enter your address" formControlName="address"></textarea>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">Gender</label>
+                          <select name="sex" id="" class="form-control" formControlName="gender">
+                            <option>...</option>
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                          </select>
+                        </div>
+                      </div> 
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label"> Phone</label>
+                          <input type="text" class="form-control" placeholder="Enter phone number" formControlName="phone">
+                        </div>
+                      </div>
+                      <div class="col-md-6">  
+                        <div class="form-group">
+                          <label class="control-label">ID Card</label>
+                          <input type="text" class="form-control" placeholder="Enter CNI" formControlName="cni">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <h1>Connexion</h1>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label"> Email</label>
+                          <input type="text" class="form-control" placeholder="Enter email" formControlName="email">
+                        </div>
+                      </div> 
+                      <div class="col-md-6"> 
+                        <div class="form-group">
+                          <label class="control-label">Password</label>
+                          <input type="password" class="form-control" placeholder="Enter password" formControlName="password">
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                  <button class="btn btn-primary prevBtn btn-lg pull-left ml-5" (click)="addSchoolCareer()" type="reset">Add info Career</button>
+                  <!-- <button class="btn btn-primary prevBtn btn-lg pull-left ml-5" type="reset">Payment</button> -->
+
+                </div>
+              </div>
+            </div>
+             <div class="col-md-6">
+              <div class="card text-center">
+                <div class="card-header">
+                 <h1> Info School</h1>
+                </div>
+                <div class="card-body"> 
+                  <div class="row">
+                    <div class="col-md-3" formArrayName="inscriptions"> 
+                      <div class="form-group" [formGroupName]="0">
+                        <label class="control-label">Year Academy</label>
+                        <select name="faculty" id="" class="form-control" formControlName="year">
+                          <option disabled>...</option>
+                          <option  value="2020-2021">2020-2021</option>
+                          <option  value="2021-2022">2021-2022</option>
+                          <option  value="2022-2023">2022-2023</option>
+                          <option  value="2023-2024">2023-2024</option>
+                           <option  value="2024-2025">2024-2025</option>
+                           <option  value="2025-2026">2020-2021</option>
+                           <option  value="2026-2027">2026-2027</option>
+                           <option  value="2027-2028">2027-2028</option>
+                           <option  value="2028-2029">2028-2029</option>
+
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-3" formArrayName="inscriptions">
+                      <div class="form-group" [formGroupName]="0"  >
+                        <div formGroupName="faculty">
+                          <label class="control-label">Faculty</label>
+                          <select name="id" id="" class="form-control" formControlName="id">
+                            <option disabled>...</option>
+                            <option *ngFor="let faculty of faculties" value="{{faculty.id}}">{{faculty.name}}</option>
+                          </select>
+
+                        </div>
+                      </div>
+                    </div> 
+                    <div class="col-md-3" formArrayName="inscriptions">
+                      <div class="form-group" [formGroupName]="0" >
+                        <div formGroupName="faculty">
+                          <div formArrayName="grades">
+                            <div  [formGroupName]="0">
+
+                              <label class="control-label">Grade</label>
+                              <select name="id" id="" class="form-control" formControlName="id">
+                                <option disabled>...</option>
+                                <option *ngFor="let grade of grades" value="{{grade.id}}">{{grade.name}}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-3" formGroupName="inscriptions">
+                      <div class="form-group" [formGroupName]="0"  >
+                        <div formGroupName="session">
+                          <label class="control-label">Session</label>
+                          <select name="id" id="" class="form-control" formControlName="id">
+                            <option disabled>...</option>
+                            <option *ngFor="let session  of sessions" value="{{session.id}}">{{session.name}}</option>
+                          </select>
+                        </div>
+                      </div> 
+                    </div> -->
+                  </div>
+                  <div class="row">
+                      <div class="card text-center">
+                        <!-- <div class="card-header"> -->
+                         <h1>info Parent</h1> 
+                        <!-- </div> -->
+                        <div class="card-body" formGroupName="parent">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="control-label">First Name</label>
+                                <input maxlength="100" type="text" required="required" class="form-control"
+                                       placeholder="Enter First Name" formControlName="firstname">
+                              </div>
+                            </div>
+                            <div class="col-md-6">  
+                              <div class="form-group">
+                                <label class="control-label">Last Name</label>
+                                <input maxlength="100" type="text" required="required" class="form-control"
+                                       placeholder="Enter Last Name" formControlName="lastname">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="control-label">Birth Date</label>
+                                <input type="date" required="required" class="form-control" placeholder="Birth date"
+                                formControlName="birthDay">
+                              </div>
+                            </div> 
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="control-label">Birth Place</label>
+                                <input type="text" required="required" class="form-control" placeholder="Birth Place"
+                                formControlName="birthPlace">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="control-label">Job</label>
+                                <input type="text" class="form-control" placeholder="Enter Job" formControlName="job">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="control-label"> Phone</label>
+                                <input type="text" class="form-control" placeholder="Enter phone number" formControlName="phone">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="control-label">CNI</label>
+                                <input type="text" class="form-control" placeholder="Enter CNI" formControlName="cni">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="control-label">Gender</label>
+                                <select name="sex" id="" class="form-control" formControlName="gender">
+                                  <option>...</option>
+                                  <option value="M">M</option>
+                                  <option value="F">F</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label class="control-label">Address</label>
+                                <textarea required="required" class="form-control" placeholder="Enter your address" formControlName="address"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="card-footer text-muted">
+                          2 days ago
+                        </div> -->
+                      </div>
+                  </div>
+                </div>
+                <!-- <div class="card-footer text-muted">
+                  2 days ago
+                </div> -->
+              </div>
+            </div> 
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card text-center">
+                <div class="card-header">
+                  <h1>Career School before </h1>
+                </div>
+                <div class="card-body" formArrayName="schoolCareers">
+                  <div *ngFor="let schoolCareer of schoolCareers.controls; let i = index">
+                    <div [formGroupName]="i">
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="control-label"> year</label>
+                            <input type="text" required="required" class="form-control"
+                                  placeholder="Enter year"  name="year" formControlName="year">
+                          </div>
+                        </div> 
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="control-label">level</label>
+                            <input  type="text" required="required" class="form-control"
+                                  placeholder="Enter level" name="level" formControlName="level">
+                          </div>
+                        </div> 
+                      </div> 
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="control-label">faculty</label>
+                            <input type="text" required="required" class="form-control" placeholder="faculty" formControlName="faculty">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="control-label">school</label>
+                            <input type="text" required="required" class="form-control" placeholder=" Enter school name" formControlName="school">
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="row">
+                        <div class="col-md-7">
+                          <div class="form-group">
+                            <label class="control-label">results</label>
+                            <textarea required="required" class="form-control" placeholder="Enter results" formControlName="results"></textarea>
+                          </div>
+                        </div>
+                        <div class="col-md-5">
+                          <div class="form-group">
+                            <button class="btn btn-danger prevBtn btn-lg pull-left ml-5" (click)="deleteSchoolCareer(i)" type="reset">delete</button>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+
+                  </div>
+                  
+                </div>
+                <!-- <div class="card-footer text-muted">
+                  2 days ago
+                </div> -->
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card text-center">
+                <div class="card-header">
+                  <h1>Payment </h1>
+                </div>
+                <div class="card-body" formArrayName="payments">
+                    <div class="row" [formGroupName]="0" >
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">amount</label>
+                          <input type="number" required="required" class="form-control"
+                                placeholder="Enter amount"  name="amount" formControlName="amount">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="control-label">Type</label>
+                          <select name="type" id="" class="form-control"  formControlName="type">
+                            <option>...</option>
+                            <option value="fee">registration fee</option>
+                            <option value="collage">collage</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <!-- <div class="card-footer text-muted">
+                  2 days ago
+                </div> -->
+              </div>
+            </div>
+          </div>
+    
+        <div class="row text-center">
+          <div class="col-md-12">
+            <button class="btn btn-success btn-lg pull-right " type="submit">Submit</button>
+            <button class="btn btn-primary prevBtn btn-lg pull-left ml-5" type="reset">Reset</button>
+          </div>
+        </div>
+          
+        </form>
+     </div>
+   </div>
+   <pre>
+
+     {{student | json}}
+   </pre>
+    <!-- [ Main Content ] end -->
+  </div>
+</div>
+<!-- [ Main Content ] end -->

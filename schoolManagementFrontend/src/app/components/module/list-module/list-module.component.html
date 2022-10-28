@@ -1,0 +1,77 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">modules</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col">
+                <a [routerLink]="['/admin/modules/add']" routerLinkActive="router-link-active" ><button class="btn btn-primary">Add Module</button></a>
+              </div>
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Modules</h5>
+                            <span class="d-block m-t-5"><code>Modules list</code></span>
+                        </div>
+                        <div class="card-body table-border-style">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Unity</th>
+                                            <th>Level</th>
+                                            <th>actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let module of modules; let i=index">
+                                            <td>{{i+1}}</td>
+                                            <td>{{module.name}}</td>
+                                            <td *ngIf="module.unity!=null"><a [routerLink]="['/admin/unities/detail',module.unity.id ]"
+                                                routerLinkActive="router-link-active">{{module.unity.name}}</a></td>
+                                                <td *ngIf="module.unity==null" class="text-danger">Not Level</td>
+                                            <td *ngIf="module.level!=null"><a [routerLink]="['/admin/levels/detail',module.level.id ]"
+                                            routerLinkActive="router-link-active">{{module.level.name}} {{module.level.name}}</a></td>
+                                            <td *ngIf="module.level==null" class="text-danger">Not Level</td>
+                                            <td>
+                                                <a [routerLink]="['/admin/modules/update', module.id]"
+                                                routerLinkActive="router-link-active"><i class="icon feather icon-edit f-16  text-success"></i></a>
+                                                <a [routerLink]="['/admin/modules/delete', module.id]"
+                                                routerLinkActive="router-link-active"><i class="feather icon-trash-2 ml-3 f-16 text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+

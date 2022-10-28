@@ -1,0 +1,81 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/admin/employees']" routerLinkActive="router-link-active">Employees</a></li>
+                            <li class="breadcrumb-item">edite Employee</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="container">
+
+                <div class="card" *ngIf="employee!= null">
+                    <div class="card-body">
+                      <h5 class="card-title">Detail employee</h5>{{employee.firstname}}
+                      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                      <table class="table">
+                       
+                        <tbody>
+                          <tr>
+                            <th scope="row">firstname:</th>
+                            <td>{{employee.firstname}}</td>
+                            <th scope="row">lastname:</th>
+                            <td>{{employee.lastname}}</td>
+                            <th scope="row">gender:</th>
+                            <td>{{employee.gender}}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">email:</th>
+                            <td>{{employee.email}}</td>
+                            <th scope="row">roles:</th>
+                            <td >{{employee.roles[0].roleName}}</td>
+                            <th scope="row">Address:</th>
+                            <td>{{employee.address}}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">birth Day:</th>
+                            <td>{{employee.birthDay}}</td>
+                            <th scope="row">birth Place</th>
+                            <td >{{employee.birthPlace}}</td>
+                            <th scope="row">CNI:</th>
+                            <td>{{employee.cni}}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Created date:</th>
+                            <td>{{employee.createdAt}}</td>
+                            <!-- <th scope="row">Update date:</th>
+                            <td >{{employee.updateAt}}</td> -->
+                            <th scope="row">Address:</th>
+                            <td>{{employee.address}}</td>
+                          </tr>
+                        </tbody>
+                      </table>               
+                      <a [routerLink]="['/admin/employees']" routerLinkActive="router-link-active"  class="card-link"> < All employees</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+
+

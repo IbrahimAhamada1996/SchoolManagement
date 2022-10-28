@@ -1,0 +1,75 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">levels</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col">
+                <a [routerLink]="['/admin/levels/add']" routerLinkActive="router-link-active" ><button class="btn btn-primary">Add Level</button></a>
+              </div>
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Levels</h5>
+                            <span class="d-block m-t-5"><code>Levels list</code></span>
+                        </div>
+                        <div class="card-body table-border-style">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>semester</th>
+                                            <th>Grade</th>
+                                            <th>actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let level of levels; let i=index">
+                                            <td>{{i+1}}</td>
+                                            <td>{{level.name}}</td>
+                                            <td>{{level.semester}}</td>
+                                            <td *ngIf="level.grade!=null"><a [routerLink]="['/admin/grades/detail',level.grade.id ]"
+                                            routerLinkActive="router-link-active">{{level.grade.name}}</a></td>
+                                            <td *ngIf="level.grade==null" class="text-danger">Not Grade</td>
+                                            <td>
+                                                <a [routerLink]="['/admin/levels/update', level.id]"
+                                                routerLinkActive="router-link-active"><i class="icon feather icon-edit f-16  text-success"></i></a>
+                                                <a [routerLink]="['/admin/levels/delete', level.id]"
+                                                routerLinkActive="router-link-active"><i class="feather icon-trash-2 ml-3 f-16 text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+

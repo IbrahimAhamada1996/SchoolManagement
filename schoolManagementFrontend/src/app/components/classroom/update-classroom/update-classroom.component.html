@@ -1,0 +1,139 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/admin/Classrooms']" routerLinkActive="router-link-active">classrooms</a></li>
+                            <li class="breadcrumb-item">edite Classroom</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        
+        <div class="container">   
+            <div class="row">
+                <div class="col-xs-6 col-md-6">
+                        <form role="form" novalidate  [formGroup]="form" (ngSubmit)="edite()">
+                        <h3> edite Classroom</h3>
+                        <div class="form-group">
+                            <label class="control-label">designation</label>
+                            <input  type="text" required="required" class="form-control"
+                                placeholder="designation"  name="designation" formControlName="designation"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('designation').touched &&
+                                      !form.get('designation').valid
+                                  }">
+                            <div class="invalid-feedback">
+                                <span *ngIf="form.get('designation').errors?.required">
+                                    Enter firstname
+                                </span>
+                                <span *ngIf="form.get('designation').errors?.minlength">
+                                    Minimum 2 characters
+                                </span>
+                                <span *ngIf="form.get('designation').errors?.maxlength">
+                                    Maxinimum 30 characters
+                                </span>
+                            </div> 
+                        </div>  
+                        <div class="form-group">
+                            <label class="control-label">ability</label>
+                            <input  type="text" required="required" class="form-control"
+                                placeholder="ability"  name="ability" formControlName="ability"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('ability').touched &&
+                                      !form.get('ability').valid
+                                  }"
+                                >
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('ability').errors?.required">
+                                        Enter ability
+                                    </span>
+                                </div>    
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Number</label>
+                            <input  type="text" required="required" class="form-control"
+                                placeholder="number"  name="number" formControlName="number"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('number').touched &&
+                                      !form.get('number').valid
+                                  }"
+                                >
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('number').errors?.required">
+                                        Enter number
+                                    </span>
+                                </div>    
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">available</label>
+                                <select name="available" id="" class="form-control" name="id"  formControlName="available">
+                                    <option value="">...</option>
+                                    <option value="true">Yes</option>
+                                    <option value="true">No</option>
+                                </select>
+                        </div> 
+                        <div class="form-group" formGroupName="establishment">
+                            <label class="control-label">establishment</label>
+
+                            <select name="id" id="" class="form-control" name="id" formControlName="id">
+                                <option value="">...</option>
+                                <option  *ngFor="let establishment of establishments " value="{{establishment.id}}">{{establishment.lastname}} {{establishment.firstname}}</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-success btn-lg pull-right" [disabled]="!form.valid && establishment!=null" type="submit">Submit</button>
+                    </form>    
+                </div>
+                <!-- {{establishment |json}} -->
+                <div class="col-xs-6  col-md-6 col-md-offset-3 m-t-3">
+                    <div class="card" *ngIf="establishment!=null ">
+                        <div class="card-body">
+                            <h5 class="card-title">Detail new  establishment</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <table class="table">
+                            
+                            <tbody>
+                                <tr>
+                                <th scope="row">name:</th>
+                                <td>{{establishment.name}}</td>
+                                <th scope="row">ability:</th>
+                                <td>{{establishment.ability}}</td>
+                                
+                                </tr>
+                                
+                                <tr>
+                            </tbody> 
+                            </table>               
+                            <a [routerLink]="['/admin/establishments/detail',establishment.id]" routerLinkActive="router-link-active"  class="card-link"><button class="btn btn-info">show detail</button> </a>
+                        </div>
+                        </div>
+                </div>
+            </div>     
+            
+            <pre>
+                {{form.value | json}}
+            </pre>
+
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+

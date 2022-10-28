@@ -1,0 +1,71 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/admin/sessions']" routerLinkActive="router-link-active" >sessions</a></li>
+                            <li class="breadcrumb-item">edite Session</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="container">
+
+                <form role="form"  [formGroup]="form" (ngSubmit)="edite()">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-offset-3">
+                            <div class="col-md-12">
+                                <h3> Edite Session</h3>
+                                <div class="form-group">
+                                    <label class="control-label">Name Session</label>
+                                    <input  type="text" required="required" class="form-control"
+                                            placeholder="Name of Session" name="name" formControlName="name"
+                                            [ngClass]="{
+                                                'is-invalid':
+                                                  form.get('name').touched &&
+                                                  !form.get('name').valid
+                                              }">
+                                    <div class="invalid-feedback">
+                                        <span *ngIf="form.get('name').errors?.required">
+                                            Enter name
+                                        </span>
+                                        <span *ngIf="form.get('name').errors?.minlength">
+                                            Minimum 2 characters
+                                        </span>
+                                        <span *ngIf="form.get('name').errors?.maxlength">
+                                            Maxinimum 30 characters
+                                        </span>
+                                     </div>           
+                                </div>  
+                            </div>
+                        </div>    
+                    </div>
+                    
+                    <button class="btn btn-success btn-lg pull-right" [disabled]="!form.valid" type="submit">Submit</button>
+                </form>
+                <pre>
+                    {{form.value | json}}
+                </pre>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+
+

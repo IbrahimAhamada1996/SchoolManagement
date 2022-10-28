@@ -1,0 +1,76 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">payments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col">
+                <a [routerLink]="['/admin/payments/add']" routerLinkActive="router-link-active" ><button class="btn btn-primary">Add Payment</button></a>
+              </div>
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Payments</h5>
+                            <span class="d-block m-t-5"><code>Payments list</code></span>
+                        </div>
+                        <div class="card-body table-border-style">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Amount</th>
+                                            <th>Created date</th>
+                                            <th>Type</th>
+                                            <th>actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let payment of payments; let i=index">
+                                            <td>{{i+1}}</td>
+                                            <td>{{payment.amount}}</td>
+                                            <td>{{payment.createdAt | date:'short'}}</td>
+                                            <td>{{payment.type}}</td>
+                                            <td *ngIf="payment.inscription!=null"><a [routerLink]="['/admin/inscriptions/detail',payment.inscription.id ]"
+                                            routerLinkActive="router-link-active">{{payment.inscription.firstname}} {{payment.inscription.lastname}}</a></td>
+                                            <td *ngIf="payment.inscription==null" class="text-danger">Not Inscription</td>
+                                            <td>
+                                                <a [routerLink]="['/admin/payments/update', payment.id]"
+                                                routerLinkActive="router-link-active"><i class="icon feather icon-edit f-16  text-success"></i></a>
+                                                <a [routerLink]="['/admin/payments/delete', payment.id]"
+                                                routerLinkActive="router-link-active"><i class="feather icon-trash-2 ml-3 f-16 text-danger"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+

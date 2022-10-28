@@ -1,0 +1,238 @@
+<!-- [ navigation menu ] start -->
+<nav class="pc-sidebar ">
+  <div class="navbar-wrapper">
+    <div class="m-header">
+      <a [routerLink]="['/admin/home']" routerLinkActive="router-link-active"  class="b-brand">
+        <!-- ========   change your logo hear   ============ -->
+        <!-- <img src="assets/public/images/logo.svg" alt="" class="logo logo-lg">
+        <img src="assets/public/images/logo-sm.svg" alt="" class="logo logo-sm"> -->
+        SCHOOL MANAGEMENT
+      </a>
+    </div>
+    <div class="navbar-content">
+      <ul class="pc-navbar">
+        <li class="pc-item pc-caption">
+          <label>Navigation</label>
+        </li>
+        <li class="pc-item">
+          <a [routerLink]="['/admin/home']" routerLinkActive="router-link-active"  class="pc-link "><span class="pc-micon"><i
+            class="material-icons-two-tone">home</i></span><span class="pc-mtext">Dashboard</span></a>
+        </li>
+        <li class="pc-item pc-caption">
+          <label>Elements</label>
+          <span>UI Components</span>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a  href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">business_center</i></span><span
+            class="pc-mtext">Students</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/students/add']" routerLinkActive="router-link-active" >Add Student</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/students']" routerLinkActive="router-link-active" >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a  href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">business_center</i></span><span
+            class="pc-mtext">Employees</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/employees/add']" routerLinkActive="router-link-active" >Add Employee</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/employees']" routerLinkActive="router-link-active" >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-caption">
+          <label>Configuration</label>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Departments</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/departments/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/departments']" routerLinkActive="router-link-active"  >list</a></li>
+           
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Classrooms</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/classrooms/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/classrooms']" routerLinkActive="router-link-active"  >list</a></li>
+           
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Courses</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/courses/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/courses']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Establishments</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/establishments/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/establishments']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Faculties</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/faculties/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/faculties']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Grades</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/grades/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/grades']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Inscriptions</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/inscriptions/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/inscriptions']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Levels</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/levels/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/levels']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Modules</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/modules/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/modules']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Payments</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/payments/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/payments']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Schedules</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/schedules/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/schedules']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">School Career</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/school-careers/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/school-careers']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">Session</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/sessions/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/sessions']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="{{currentURL}}#!" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">edit</i></span><span
+            class="pc-mtext">unities</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/unities/add']" routerLinkActive="router-link-active" >add</a></li>
+            <li class="pc-item"><a class="pc-link" [routerLink]="['/admin/unities']" routerLinkActive="router-link-active"  >list</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-caption">
+          <label>table</label>
+        </li>
+        <li class="pc-item">
+          <a href="tbl_bootstrap.html" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">table_rows</i></span><span
+            class="pc-mtext">Bootstrap table</span></a>
+        </li>
+        <li class="pc-item pc-caption">
+          <label>Chart & Maps</label>
+          <span>Tones of readymade charts</span>
+        </li>
+        <li class="pc-item">
+          <a href="chart-apex.html" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">bubble_chart</i></span><span
+            class="pc-mtext">Chart</span></a>
+        </li>
+        <li class="pc-item">
+          <a href="map-google.html" class="pc-link "><span class="pc-micon"><i class="material-icons-two-tone">my_location</i></span><span
+            class="pc-mtext">Maps</span></a>
+        </li>
+        <li class="pc-item pc-caption">
+          <label>Pages</label>
+          <span>Redymade Pages</span>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link"><span class="pc-micon"><i class="material-icons-two-tone">https</i></span><span
+            class="pc-mtext">Authentication</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="auth-signup.html" target="_blank">Sign up</a></li>
+            <li class="pc-item"><a class="pc-link" href="auth-signin.html" target="_blank">Sign in</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-caption">
+          <label>Other</label>
+          <span>Extra more things</span>
+        </li>
+        <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link"><span class="pc-micon"><i
+            class="material-icons-two-tone">list_alt</i></span><span class="pc-mtext">Menu levels</span><span
+            class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="#!">Menu Level 2.1</a></li>
+            <li class="pc-item pc-hasmenu">
+              <a href="#!" class="pc-link">Menu level 2.2<span class="pc-arrow"><i
+                data-feather="chevron-right"></i></span></a>
+              <ul class="pc-submenu">
+                <li class="pc-item"><a class="pc-link" href="#!">Menu level 3.1</a></li>
+                <li class="pc-item"><a class="pc-link" href="#!">Menu level 3.2</a></li>
+                <li class="pc-item pc-hasmenu">
+                  <a href="#!" class="pc-link">Menu level 3.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                  <ul class="pc-submenu">
+                    <li class="pc-item"><a class="pc-link" href="#!">Menu level 4.1</a></li>
+                    <li class="pc-item"><a class="pc-link" href="#!">Menu level 4.2</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="pc-item pc-hasmenu">
+              <a href="#!" class="pc-link">Menu level 2.3<span class="pc-arrow"><i
+                data-feather="chevron-right"></i></span></a>
+              <ul class="pc-submenu">
+                <li class="pc-item"><a class="pc-link" href="#!">Menu level 3.1</a></li>
+                <li class="pc-item"><a class="pc-link" href="#!">Menu level 3.2</a></li>
+                <li class="pc-item pc-hasmenu">
+                  <a href="#!" class="pc-link">Menu level 3.3<span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                  <ul class="pc-submenu">
+                    <li class="pc-item"><a class="pc-link" href="#!">Menu level 4.1</a></li>
+                    <li class="pc-item"><a class="pc-link" href="#!">Menu level 4.2</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="pc-item"><a href="sample-page.html" class="pc-link "><span class="pc-micon"><i
+          class="material-icons-two-tone">storefront</i></span><span class="pc-mtext">Sample page</span></a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- [ navigation menu ] end -->

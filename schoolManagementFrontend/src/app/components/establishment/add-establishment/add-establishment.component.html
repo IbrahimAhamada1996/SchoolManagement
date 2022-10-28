@@ -1,0 +1,83 @@
+
+<app-header></app-header>
+<!-- [ Main Content ] start -->
+<div class="pc-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Dashboard</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a [routerLink]="['/admin/establishments']" routerLinkActive="router-link-active">establishments</a></li>
+                            <li class="breadcrumb-item">add establishment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        
+        <div class="container">   
+            <div class="row">
+                <div class="col-xs-6 col-md-6">
+                        <form role="form" novalidate  [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <h3> New establishment</h3>
+                        <div class="form-group">
+                            <label class="control-label">Name</label>
+                            <input  type="text" required="required" class="form-control"
+                                placeholder="name"  name="name" formControlName="name"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('name').touched &&
+                                      !form.get('name').valid
+                                  }">
+                            <div class="invalid-feedback">
+                                <span *ngIf="form.get('name').errors?.required">
+                                    Enter firstname
+                                </span>
+                                <span *ngIf="form.get('name').errors?.minlength">
+                                    Minimum 2 characters
+                                </span>
+                                <span *ngIf="form.get('name').errors?.maxlength">
+                                    Maxinimum 30 characters
+                                </span>
+                            </div> 
+                        </div>  
+                        <div class="form-group">
+                            <label class="control-label">ability</label>
+                            <input  type="text" required="required" class="form-control"
+                                placeholder="ability"  name="ability" formControlName="ability"
+                                [ngClass]="{
+                                    'is-invalid':
+                                      form.get('ability').touched &&
+                                      !form.get('ability').valid
+                                  }"
+                                >
+                                <div class="invalid-feedback">
+                                    <span *ngIf="form.get('ability').errors?.required">
+                                        Enter ability
+                                    </span>
+                                </div>    
+                        </div>
+                        <button class="btn btn-success btn-lg pull-right" [disabled]="!form.valid" type="submit">Submit</button>
+                    </form>    
+
+            </div>     
+            
+            <pre>
+                {{form.value | json}}
+            </pre>
+
+        </div>
+     <!-- [ Main Content ] end -->
+    </div>
+</div>
+<!-- [ Main Content ] end -->
+
+
+
